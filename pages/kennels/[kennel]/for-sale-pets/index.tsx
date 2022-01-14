@@ -16,6 +16,7 @@ import { useBreakpointValue } from "@chakra-ui/media-query";
 import { AxiosError } from "axios";
 import EmptyData from "../../../../components/shared/EmptyData";
 import KennelsYouMightLike from "../../../../components/pages/kennels/kennel/KennelsYouMightLike";
+import Head from "next/head";
 
 const ForSale = ({ kennel }: { kennel: IKennel }) => {
   const { user } = useUser();
@@ -24,42 +25,48 @@ const ForSale = ({ kennel }: { kennel: IKennel }) => {
 
   const { isOpen, openModal, closeModal } = useHashBasedModal("#create-for-sale");
   return (
-    <Container maxWidth='container.lg' p='0'>
-      <Grid templateColumns={{ base: "100%", md: "70% 30%" }} alignItems='start'>
-        <Box>
-          <KennelHeader kennel={kennel} />
+    <>
+      <Head>
+        <title>{kennel.name}</title>
+        <meta name='description' content={`${kennel.name} For Sale Pets`} />
+      </Head>
+      <Container maxWidth='container.lg' p='0'>
+        <Grid templateColumns={{ base: "100%", md: "70% 30%" }} alignItems='start'>
+          <Box>
+            <KennelHeader kennel={kennel} />
 
-          <Box px={{ base: "0", md: "4" }} width='100%' maxW='container.md'>
-            {kennel._id === user?.kennel?._id && (
-              <Flex justifyContent='end' bgColor='white' shadow='xs' my='2' rounded={{ base: "none", md: "lg" }} px={{ md: "0" }} p={{ base: "2", md: "4" }}>
-                <Button color='blackAlpha.700' leftIcon={<Icon as={HiOutlinePlus} />} size='sm' onClick={openModal}>
-                  Sell pet
-                </Button>
-              </Flex>
-            )}
-            {forSalePetsByKennel && forSalePetsByKennel.length > 0 && (
-              <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }} gap='2' mt={kennel._id === user?.kennel?._id ? "0" : "2"}>
-                {forSalePetsByKennel?.map(forSalePet => (
-                  <ForSalePetItem key={forSalePet._id} href={`/kennels/${kennel._id}/for-sale-pets/${forSalePet._id}`} forSalePet={forSalePet} />
-                ))}
-              </Grid>
-            )}
-            <Center my='20'>
-              {!forSalePetsByKennel && <Spinner size='sm' />}
-              {errorForSalePetsByKennel && <Text>Failed to load</Text>}
-              {forSalePetsByKennel && forSalePetsByKennel.length === 0 && <EmptyData />}
-            </Center>
+            <Box px={{ base: "0", md: "4" }} width='100%' maxW='container.md'>
+              {kennel._id === user?.kennel?._id && (
+                <Flex justifyContent='end' bgColor='white' shadow='xs' my='2' rounded={{ base: "none", md: "lg" }} px={{ md: "0" }} p={{ base: "2", md: "4" }}>
+                  <Button color='blackAlpha.700' leftIcon={<Icon as={HiOutlinePlus} />} size='sm' onClick={openModal}>
+                    Sell pet
+                  </Button>
+                </Flex>
+              )}
+              {forSalePetsByKennel && forSalePetsByKennel.length > 0 && (
+                <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }} gap='2' mt={kennel._id === user?.kennel?._id ? "0" : "2"}>
+                  {forSalePetsByKennel?.map(forSalePet => (
+                    <ForSalePetItem key={forSalePet._id} href={`/kennels/${kennel._id}/for-sale-pets/${forSalePet._id}`} forSalePet={forSalePet} />
+                  ))}
+                </Grid>
+              )}
+              <Center my='20'>
+                {!forSalePetsByKennel && <Spinner size='sm' />}
+                {errorForSalePetsByKennel && <Text>Failed to load</Text>}
+                {forSalePetsByKennel && forSalePetsByKennel.length === 0 && <EmptyData />}
+              </Center>
+            </Box>
           </Box>
-        </Box>
-        {isMd && (
-          <Box pr='4'>
-            <KennelsYouMightLike kennel={kennel} />
-          </Box>
-        )}
-      </Grid>
+          {isMd && (
+            <Box pr='4'>
+              <KennelsYouMightLike kennel={kennel} />
+            </Box>
+          )}
+        </Grid>
 
-      {isOpen && <ForSalePetCreateModal closeModal={closeModal} />}
-    </Container>
+        {isOpen && <ForSalePetCreateModal closeModal={closeModal} />}
+      </Container>
+    </>
   );
 };
 export default ForSale;

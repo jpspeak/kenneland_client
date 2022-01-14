@@ -10,6 +10,7 @@ import useForSalePets from "../../hooks/swr/use-for-sale-pets";
 import { ICursorPagination, IForSalePet } from "../../types";
 import { useBottomScrollListener } from "react-bottom-scroll-listener";
 import NoDataFound from "../../components/pages/feed/NoDataFound";
+import Head from "next/head";
 
 const ForSalePet = ({ initialForSalePets }: { initialForSalePets: ICursorPagination<IForSalePet[]> }) => {
   const router = useRouter();
@@ -26,6 +27,10 @@ const ForSalePet = ({ initialForSalePets }: { initialForSalePets: ICursorPaginat
 
   return (
     <>
+      <Head>
+        <title>For Sale Pets</title>
+        <meta name='description' content='Dog For Sale' />
+      </Head>
       <Box>
         <Container maxWidth='container.lg' mt='2' px={{ base: "0", md: "4" }}>
           <Grid templateColumns={{ base: "100%", md: "30% 70%" }} gap='2'>

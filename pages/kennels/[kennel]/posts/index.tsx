@@ -9,11 +9,16 @@ import { Box, Center, Container, Grid } from "@chakra-ui/layout";
 import EmptyData from "../../../../components/shared/EmptyData";
 import KennelsYouMightLike from "../../../../components/pages/kennels/kennel/KennelsYouMightLike";
 import { useBreakpointValue } from "@chakra-ui/media-query";
+import Head from "next/head";
 
 const Posts = ({ kennel }: { kennel: IKennel }) => {
   const isMd = useBreakpointValue({ base: false, md: true });
   return (
     <>
+      <Head>
+        <title>{kennel.name}</title>
+        <meta name='description' content={`${kennel.name} Posts`} />
+      </Head>
       <Container maxWidth='container.lg' p='0'>
         <Grid templateColumns={{ base: "100%", md: "70% 30%" }} alignItems='start'>
           <Box>

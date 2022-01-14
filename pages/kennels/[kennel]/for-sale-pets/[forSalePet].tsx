@@ -13,6 +13,7 @@ import FailedToLoad from "../../../../components/shared/FailedToLoad";
 import LoadingSpinner from "../../../../components/shared/LoadingSpinner";
 import ForSalePetGalleryCard from "../../../../components/pages/kennels/kennel/for-sale/for-sale-pet/ForSalePetGalleryCard";
 import ForSalePetDetails from "../../../../components/pages/kennels/kennel/for-sale/for-sale-pet/ForSalePetDetails";
+import Head from "next/head";
 
 const ForSalePet = ({ initialForSalePet }: { initialForSalePet: IForSalePet }) => {
   const { forSalePet, errorForSalePet } = useForSalePet(initialForSalePet._id, initialForSalePet);
@@ -24,6 +25,10 @@ const ForSalePet = ({ initialForSalePet }: { initialForSalePet: IForSalePet }) =
 
   return (
     <>
+      <Head>
+        <title>For Sale {forSalePet?.breed}</title>
+        <meta name='description' content={`${forSalePet?.breed} For Sale`} />
+      </Head>
       {!isMd && (
         <Box position='absolute' zIndex={2} p='2'>
           <BackButton />

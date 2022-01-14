@@ -16,6 +16,7 @@ import { useState } from "react";
 import KennelCardViewContact from "../../../../components/shared/KennelCardViewContact";
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import StudActions from "../../../../components/pages/kennels/kennel/studs/stud/StudActions/StudActions";
+import Head from "next/head";
 
 const StudDetails = ({ stud }: { stud: IStud }) => (
   <>
@@ -92,6 +93,10 @@ const Stud = ({ initialStud }: { initialStud: IStud }) => {
 
   return (
     <>
+      <Head>
+        <title>{stud?.name}</title>
+        <meta name='description' content={`${stud?.name} Stud Service`} />
+      </Head>
       {!isMd && (
         <Box position='absolute' zIndex={2} p='2'>
           <BackButton />

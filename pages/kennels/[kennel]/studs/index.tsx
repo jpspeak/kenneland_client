@@ -16,6 +16,7 @@ import { HiOutlinePlus } from "react-icons/hi";
 import { AxiosError } from "axios";
 import EmptyData from "../../../../components/shared/EmptyData";
 import KennelsYouMightLike from "../../../../components/pages/kennels/kennel/KennelsYouMightLike";
+import Head from "next/head";
 
 const Studs = ({ kennel }: { kennel: IKennel }) => {
   const { user } = useUser();
@@ -26,41 +27,47 @@ const Studs = ({ kennel }: { kennel: IKennel }) => {
   const { isOpen, openModal, closeModal } = useHashBasedModal("#add-stud");
 
   return (
-    <Container maxWidth='container.lg' p='0'>
-      <Grid templateColumns={{ base: "100%", md: "70% 30%" }} alignItems='start'>
-        <Box>
-          <KennelHeader kennel={kennel} />
-          <Box px={{ base: "0", md: "4" }} width='full' maxW='container.md'>
-            {kennel._id === user?.kennel?._id && (
-              <Flex justifyContent='end' bgColor='white' shadow='xs' my='2' rounded={{ base: "none", md: "lg" }} px={{ md: "0" }} p={{ base: "2", md: "4" }}>
-                <Button color='blackAlpha.700' leftIcon={<Icon as={HiOutlinePlus} />} size='sm' onClick={openModal}>
-                  Add stud
-                </Button>
-              </Flex>
-            )}
-            {studs && studs.length > 0 && (
-              <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }} gap='2' mt={kennel._id === user?.kennel?._id ? "0" : "2"}>
-                {studs?.map(stud => (
-                  <StudItem key={stud._id} href={`/kennels/${kennel._id}/studs/${stud._id}`} stud={stud} />
-                ))}
-              </Grid>
-            )}
-            <Center my='20'>
-              {!studs && <Spinner size='sm' />}
-              {errorStudsByKennel && <Text>Failed to load</Text>}
-              {studs && studs.length === 0 && <EmptyData />}
-            </Center>
+    <>
+      <Head>
+        <title>{kennel.name}</title>
+        <meta name='description' content={`${kennel.name} Stud Service`} />
+      </Head>
+      <Container maxWidth='container.lg' p='0'>
+        <Grid templateColumns={{ base: "100%", md: "70% 30%" }} alignItems='start'>
+          <Box>
+            <KennelHeader kennel={kennel} />
+            <Box px={{ base: "0", md: "4" }} width='full' maxW='container.md'>
+              {kennel._id === user?.kennel?._id && (
+                <Flex justifyContent='end' bgColor='white' shadow='xs' my='2' rounded={{ base: "none", md: "lg" }} px={{ md: "0" }} p={{ base: "2", md: "4" }}>
+                  <Button color='blackAlpha.700' leftIcon={<Icon as={HiOutlinePlus} />} size='sm' onClick={openModal}>
+                    Add stud
+                  </Button>
+                </Flex>
+              )}
+              {studs && studs.length > 0 && (
+                <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }} gap='2' mt={kennel._id === user?.kennel?._id ? "0" : "2"}>
+                  {studs?.map(stud => (
+                    <StudItem key={stud._id} href={`/kennels/${kennel._id}/studs/${stud._id}`} stud={stud} />
+                  ))}
+                </Grid>
+              )}
+              <Center my='20'>
+                {!studs && <Spinner size='sm' />}
+                {errorStudsByKennel && <Text>Failed to load</Text>}
+                {studs && studs.length === 0 && <EmptyData />}
+              </Center>
+            </Box>
           </Box>
-        </Box>
-        {isMd && (
-          <Box pr='4'>
-            <KennelsYouMightLike kennel={kennel} />
-          </Box>
-        )}
-      </Grid>
+          {isMd && (
+            <Box pr='4'>
+              <KennelsYouMightLike kennel={kennel} />
+            </Box>
+          )}
+        </Grid>
 
-      {isOpen && <StudCreateModal closeModal={closeModal} />}
-    </Container>
+        {isOpen && <StudCreateModal closeModal={closeModal} />}
+      </Container>
+    </>
   );
 };
 export default Studs;

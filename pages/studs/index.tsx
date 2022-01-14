@@ -17,6 +17,7 @@ import FailedToLoad from "../../components/shared/FailedToLoad";
 import StudsFilter from "../../components/pages/studs/StudsFilter";
 import StudsFilterList from "../../components/pages/studs/StudsFilterList";
 import NoDataFound from "../../components/pages/feed/NoDataFound";
+import Head from "next/head";
 
 const Studs = ({ initialStuds }: { initialStuds: ICursorPagination<IStud[]> }) => {
   const router = useRouter();
@@ -33,6 +34,10 @@ const Studs = ({ initialStuds }: { initialStuds: ICursorPagination<IStud[]> }) =
 
   return (
     <>
+      <Head>
+        <title>Studs</title>
+        <meta name='description' content='Dog Stud Service' />
+      </Head>
       <Box>
         <Container maxWidth='container.lg' mt='2' px={{ base: "0", md: "4" }}>
           <Grid templateColumns={{ base: "100%", md: "30% 70%" }} gap='2'>

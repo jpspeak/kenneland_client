@@ -12,6 +12,7 @@ import { ICursorPagination, IKennel } from "../../types";
 import useKennels from "../../hooks/swr/use-kennels";
 import { useBottomScrollListener } from "react-bottom-scroll-listener";
 import NoDataFound from "../../components/pages/feed/NoDataFound";
+import Head from "next/head";
 
 const Kennels = ({ initialKennels }: { initialKennels: ICursorPagination<IKennel[]> }) => {
   const router = useRouter();
@@ -28,6 +29,10 @@ const Kennels = ({ initialKennels }: { initialKennels: ICursorPagination<IKennel
 
   return (
     <>
+      <Head>
+        <title>Kennels</title>
+        <meta name='description' content='Dog Kennel' />
+      </Head>
       <Box>
         <Container maxWidth='container.lg' mt='2' px={{ base: "2", md: "4" }}>
           <Grid templateColumns={{ base: "100%", md: "30% 70%" }} gap='2'>

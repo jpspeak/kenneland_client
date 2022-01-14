@@ -41,6 +41,7 @@ const Header: React.FC = () => {
   return (
     <>
       <Head>
+        <title>Kenneland</title>
         <link rel='shortcut icon' href='/fav.ico' />
       </Head>
       <Box shadow='xs' bg='white'>
