@@ -1,5 +1,5 @@
 import { Box, Container, Grid, VStack } from "@chakra-ui/layout";
-import apiServerClient from "../../api/api-server-client";
+import apiServerClient from "../../api-routes/api-server-client";
 import ForSalePetItem from "../../components/pages/kennels/kennel/for-sale/ForSalePetItem";
 import LoadingSpinner from "../../components/shared/LoadingSpinner";
 import FailedToLoad from "../../components/shared/FailedToLoad";

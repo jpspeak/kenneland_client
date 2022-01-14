@@ -4,7 +4,7 @@ import { useToast } from "@chakra-ui/toast";
 import { Tooltip } from "@chakra-ui/tooltip";
 import { useSetRecoilState } from "recoil";
 import useSWR from "swr";
-import kennelAPI from "../../../../../api/kennel.api";
+import kennelAPI from "../../../../../api-routes/kennel.api";
 import useUser from "../../../../../hooks/swr/use-user";
 import authModalAtom from "../../../../../state/atoms/auth-modal.atom";
 

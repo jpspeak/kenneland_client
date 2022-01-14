@@ -6,8 +6,8 @@ import Icon from "@chakra-ui/icon";
 import { Box, Center, Flex, Stack, Text, VStack } from "@chakra-ui/layout";
 import { HiOutlineArrowCircleUp } from "react-icons/hi";
 
-import messageAPI from "../../../api/message.api";
-import conversationAPI from "../../../api/conversation.api";
+import messageAPI from "../../../api-routes/message.api";
+import conversationAPI from "../../../api-routes/conversation.api";
 
 import { IMessage } from "../../../types";
 

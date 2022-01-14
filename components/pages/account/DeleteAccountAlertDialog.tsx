@@ -4,7 +4,7 @@ import { VStack } from "@chakra-ui/layout";
 import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/modal";
 import { Alert, AlertIcon, AlertTitle, AlertDescription, Link } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import userAPI from "../../../api/user.api";
+import userAPI from "../../../api-routes/user.api";
 import useUser from "../../../hooks/swr/use-user";
 import { setAccessToken } from "../../../services/token.service";
 

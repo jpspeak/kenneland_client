@@ -8,7 +8,7 @@ import { setAccessToken, setRefreshToken } from "../../../services/token.service
 import authModalAtom from "../../../state/atoms/auth-modal.atom";
 import FormError from "../FormError";
 import userAtom from "../../../state/atoms/user.atom";
-import authAPI from "../../../api/auth.api";
+import authAPI from "../../../api-routes/auth.api";
 import useUser from "../../../hooks/swr/use-user";
 
 interface ILoginForm {

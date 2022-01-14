@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Spacer, Text, Flex, Icon, HStack } from "@chakra-ui/react";
 import { GetServerSidePropsContext } from "next";
-import studAPI from "../../../../api/stud.api";
+import studAPI from "../../../../api-routes/stud.api";
 import { IStud } from "../../../../types";
 import { useBreakpointValue } from "@chakra-ui/media-query";
 import BackButton from "../../../../components/shared/BackButton";

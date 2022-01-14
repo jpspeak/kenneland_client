@@ -1,7 +1,7 @@
 import { Avatar } from "@chakra-ui/avatar";
 import { Box, Center, Container, Grid, Heading, Link, Text, Flex } from "@chakra-ui/layout";
 import useSWR from "swr";
-import kennelAPI from "../../../api/kennel.api";
+import kennelAPI from "../../../api-routes/kennel.api";
 import { IKennel } from "../../../types";
 import Image from "next/image";
 import NextLink from "next/link";

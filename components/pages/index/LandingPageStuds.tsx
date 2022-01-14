@@ -2,7 +2,7 @@ import { Avatar } from "@chakra-ui/avatar";
 import { Button } from "@chakra-ui/button";
 import { Box, Center, Container, Grid, Heading, Link, Flex, Text } from "@chakra-ui/layout";
 import useSWR from "swr";
-import studAPI from "../../../api/stud.api";
+import studAPI from "../../../api-routes/stud.api";
 import { IKennel, IStud } from "../../../types";
 import Image from "next/image";
 import NextLink from "next/link";

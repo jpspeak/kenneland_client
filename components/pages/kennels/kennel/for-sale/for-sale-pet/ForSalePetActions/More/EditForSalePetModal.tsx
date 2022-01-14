@@ -6,7 +6,7 @@ import { useToast } from "@chakra-ui/toast";
 import { IForSalePet } from "../../../../../../../../types";
 import globalLoadingOverlayAtom from "../../../../../../../../state/atoms/global-loading-overlay.atom";
 import useForSalePet from "../../../../../../../../hooks/swr/use-for-sale-pet";
-import forSalePetAPI from "../../../../../../../../api/for-sale-pet.api";
+import forSalePetAPI from "../../../../../../../../api-routes/for-sale-pet.api";
 import ForSalePetForm from "../../../ForSalePetForm";
 
 const EditForSalePetModal = ({ closeModal, forSalePet }: { closeModal: () => void; forSalePet: IForSalePet }) => {

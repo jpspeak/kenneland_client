@@ -6,7 +6,7 @@ import { useState, useRef } from "react";
 import { HiOutlineTrash } from "react-icons/hi";
 import { MouseEventHandler } from "react-transition-group/node_modules/@types/react";
 import { useRecoilState } from "recoil";
-import conversationAPI from "../../../api/conversation.api";
+import conversationAPI from "../../../api-routes/conversation.api";
 import useUser from "../../../hooks/swr/use-user";
 import conversationsAtom from "../../../state/atoms/conversations.atom";
 

@@ -1,6 +1,6 @@
 import { Icon } from "@chakra-ui/react";
 import useUser from "../../../../hooks/swr/use-user";
-import authAPI from "../../../../api/auth.api";
+import authAPI from "../../../../api-routes/auth.api";
 import { HiLogout, HiOutlineLogout } from "react-icons/hi";
 import DrawerButtonBase from "./DrawerButtonBase";
 import { setAccessToken } from "../../../../services/token.service";

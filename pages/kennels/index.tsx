@@ -1,6 +1,6 @@
 import { Box, Container, Grid, VStack } from "@chakra-ui/layout";
 import { GetServerSideProps } from "next";
-import kennelAPI from "../../api/kennel.api";
+import kennelAPI from "../../api-routes/kennel.api";
 import KennelsItem from "../../components/pages/kennels/KennelsItem";
 import KennelsFilter from "../../components/pages/kennels/KennelsFilter";
 import KennelsFilterList from "../../components/pages/kennels/KennelsFilterList";

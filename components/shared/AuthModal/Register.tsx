@@ -8,8 +8,8 @@ import authModalAtom from "../../../state/atoms/auth-modal.atom";
 import meAtom from "../../../state/atoms/user.atom";
 import { setAccessToken, setRefreshToken } from "../../../services/token.service";
 import FormError from "../FormError";
-import apiServerClient from "../../../api/api-server-client";
-import authAPI from "../../../api/auth.api";
+import apiServerClient from "../../../api-routes/api-server-client";
+import authAPI from "../../../api-routes/auth.api";
 import useUser from "../../../hooks/swr/use-user";
 
 interface IForm {

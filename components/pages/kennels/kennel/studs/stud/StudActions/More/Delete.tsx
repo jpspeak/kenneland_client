@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useState, useRef } from "react";
 import { HiOutlineTrash } from "react-icons/hi";
 import { useRecoilState } from "recoil";
-import studAPI from "../../../../../../../../api/stud.api";
+import studAPI from "../../../../../../../../api-routes/stud.api";
 import useStud from "../../../../../../../../hooks/swr/use-stud";
 import globalLoadingOverlayAtom from "../../../../../../../../state/atoms/global-loading-overlay.atom";
 

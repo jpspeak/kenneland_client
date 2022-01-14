@@ -1,7 +1,7 @@
 import useSWRInfinite from "swr/infinite";
 import queryString from "query-string";
 import { ICursorPagination, IForSalePet } from "../../types";
-import forSalePetAPI from "../../api/for-sale-pet.api";
+import forSalePetAPI from "../../api-routes/for-sale-pet.api";
 
 const useForSalePets = (query: { [key: string]: any } = {}, initialForSalePets?: ICursorPagination<IForSalePet[]>) => {
   const getKey: any = (pageIndex: number, previousPageData: ICursorPagination<IForSalePet[]>) => {

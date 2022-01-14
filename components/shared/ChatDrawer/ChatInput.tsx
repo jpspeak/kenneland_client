@@ -9,7 +9,7 @@ import { HiPaperAirplane } from "react-icons/hi";
 import useUser from "../../../hooks/swr/use-user";
 import { useBoolean } from "@chakra-ui/hooks";
 
-import messageAPI from "../../../api/message.api";
+import messageAPI from "../../../api-routes/message.api";
 
 import ChatDrawerContext from "../../../state/context/chat-drawer-context";
 import { SocketContext } from "../../../state/context/socket-context";

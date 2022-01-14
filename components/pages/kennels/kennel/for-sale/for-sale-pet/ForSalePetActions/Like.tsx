@@ -5,7 +5,7 @@ import { Tooltip } from "@chakra-ui/tooltip";
 import { HiHeart, HiOutlineHeart } from "react-icons/hi";
 import { useSetRecoilState } from "recoil";
 import useSWR from "swr";
-import forSalePetAPI from "../../../../../../../api/for-sale-pet.api";
+import forSalePetAPI from "../../../../../../../api-routes/for-sale-pet.api";
 import useUser from "../../../../../../../hooks/swr/use-user";
 import authModalAtom from "../../../../../../../state/atoms/auth-modal.atom";
 

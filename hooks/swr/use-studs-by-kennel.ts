@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import studAPI from "../../api/stud.api";
+import studAPI from "../../api-routes/stud.api";
 
 const useStudsByKennel = (kennelId: string) => {
   const { data, error, mutate } = useSWR(`/kennels/${kennelId}/studs`, () => studAPI.getStudsByKennel(kennelId));

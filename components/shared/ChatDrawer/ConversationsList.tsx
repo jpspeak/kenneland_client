@@ -10,7 +10,7 @@ import useIsOnline from "../../../hooks/use-is-online";
 import { useRecoilState } from "recoil";
 import { useBoolean } from "@chakra-ui/hooks";
 
-import conversationAPI from "../../../api/conversation.api";
+import conversationAPI from "../../../api-routes/conversation.api";
 
 import { IConversation, IMessage } from "../../../types";
 

@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import favoriteStudAPI from "../../api/favorite.api";
+import favoriteStudAPI from "../../api-routes/favorite.api";
 import useUser from "./use-user";
 
 const useFavoriteForSale = () => {

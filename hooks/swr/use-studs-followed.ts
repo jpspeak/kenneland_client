@@ -1,8 +1,8 @@
 import useSWRInfinite from "swr/infinite";
-import kennelAPI from "../../api/kennel.api";
+import kennelAPI from "../../api-routes/kennel.api";
 import queryString from "query-string";
 import { ICursorPagination, IStud } from "../../types";
-import studAPI from "../../api/stud.api";
+import studAPI from "../../api-routes/stud.api";
 
 const useStudsFollowed = (userId: string, query: { [key: string]: any } = {}, initialStudsFollowed?: ICursorPagination<IStud[]>) => {
   const getKey: any = (pageIndex: number, previousPageData: ICursorPagination<IStud[]>) => {

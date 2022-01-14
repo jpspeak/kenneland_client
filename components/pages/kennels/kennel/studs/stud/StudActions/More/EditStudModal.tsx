@@ -8,7 +8,7 @@ import { useToast } from "@chakra-ui/react";
 import { IStud } from "../../../../../../../../types";
 import globalLoadingOverlayAtom from "../../../../../../../../state/atoms/global-loading-overlay.atom";
 import useStud from "../../../../../../../../hooks/swr/use-stud";
-import studAPI from "../../../../../../../../api/stud.api";
+import studAPI from "../../../../../../../../api-routes/stud.api";
 import StudForm from "../../../StudForm";
 
 const EditStudModal = ({ closeModal, stud }: { closeModal: () => void; stud: IStud }) => {

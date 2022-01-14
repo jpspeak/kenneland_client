@@ -3,7 +3,7 @@ import { NextPage } from "next";
 import { Spinner } from "@chakra-ui/spinner";
 import useSWR from "swr";
 import { useRouter } from "next/router";
-import userAPI from "../../api/user.api";
+import userAPI from "../../api-routes/user.api";
 import { Avatar } from "@chakra-ui/avatar";
 import Icon from "@chakra-ui/icon";
 import { HiOutlineCalendar } from "react-icons/hi";

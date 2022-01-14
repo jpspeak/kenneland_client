@@ -3,7 +3,7 @@ import { Spinner } from "@chakra-ui/spinner";
 import { GetServerSidePropsContext } from "next";
 import KennelHeader from "../../../../components/pages/kennels/kennel/KennelHeader";
 import ForSalePetItem from "../../../../components/pages/kennels/kennel/for-sale/ForSalePetItem";
-import kennelAPI from "../../../../api/kennel.api";
+import kennelAPI from "../../../../api-routes/kennel.api";
 import { Button } from "@chakra-ui/button";
 import useUser from "../../../../hooks/swr/use-user";
 import ForSalePetCreateModal from "../../../../components/pages/kennels/kennel/for-sale/ForSalePetCreateModal";

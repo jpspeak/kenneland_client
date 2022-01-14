@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import userAPI from "../../api/user.api";
+import userAPI from "../../api-routes/user.api";
 
 const useUser = () => {
   const { data, error, mutate } = useSWR("/users/me", () => userAPI.getMe().then(res => res.data), { shouldRetryOnError: false, revalidateOnFocus: false, revalidateIfStale: false });

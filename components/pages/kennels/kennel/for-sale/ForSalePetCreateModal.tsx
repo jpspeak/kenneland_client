@@ -1,5 +1,5 @@
 import { Modal, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from "@chakra-ui/modal";
-import forSalePetAPI from "../../../../../api/for-sale-pet.api";
+import forSalePetAPI from "../../../../../api-routes/for-sale-pet.api";
 import { useRouter } from "next/router";
 import { useBreakpointValue } from "@chakra-ui/media-query";
 import globalLoadingOverlayAtom from "../../../../../state/atoms/global-loading-overlay.atom";

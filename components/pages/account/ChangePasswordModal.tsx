@@ -8,7 +8,7 @@ import { Link, useToast } from "@chakra-ui/react";
 import { Field, FieldAttributes, Form, Formik } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import userAPI from "../../../api/user.api";
+import userAPI from "../../../api-routes/user.api";
 import FormError from "../../shared/FormError";
 
 const ChangePassword = ({ onClose }: { onClose: () => void }) => {

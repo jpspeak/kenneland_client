@@ -5,7 +5,7 @@ import { useBreakpointValue } from "@chakra-ui/media-query";
 import { AxiosError } from "axios";
 import "swiper/css/bundle";
 import useForSalePet from "../../../../hooks/swr/use-for-sale-pet";
-import forSalePetAPI from "../../../../api/for-sale-pet.api";
+import forSalePetAPI from "../../../../api-routes/for-sale-pet.api";
 import ForSalePetActions from "../../../../components/pages/kennels/kennel/for-sale/for-sale-pet/ForSalePetActions/ForSalePetActions";
 import KennelCardViewContact from "../../../../components/shared/KennelCardViewContact";
 import BackButton from "../../../../components/shared/BackButton";

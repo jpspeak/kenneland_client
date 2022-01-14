@@ -1,6 +1,6 @@
 import useSWR from "swr";
-import forSaleAPI from "../../api/for-sale-pet.api";
-import studAPI from "../../api/stud.api";
+import forSaleAPI from "../../api-routes/for-sale-pet.api";
+import studAPI from "../../api-routes/stud.api";
 import { IForSalePet, IStud } from "../../types";
 
 const useForSalePet = (forSalePetId: string, initialData?: IForSalePet) => {

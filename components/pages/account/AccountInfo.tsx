@@ -8,7 +8,7 @@ import { useToast } from "@chakra-ui/toast";
 import { Field, FieldAttributes, Form, Formik } from "formik";
 import { useState } from "react";
 import * as Yup from "yup";
-import userAPI from "../../../api/user.api";
+import userAPI from "../../../api-routes/user.api";
 import useUser from "../../../hooks/swr/use-user";
 import FormError from "../../shared/FormError";
 import AvatarInput from "./AvatarInput";

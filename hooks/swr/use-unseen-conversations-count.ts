@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import conversationAPI from "../../api/conversation.api";
+import conversationAPI from "../../api-routes/conversation.api";
 import useUser from "./use-user";
 
 const useUnseenConversationsCount = () => {

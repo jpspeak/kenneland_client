@@ -1,6 +1,6 @@
 import { MenuItem } from "@chakra-ui/menu";
 import { HiOutlineBan } from "react-icons/hi";
-import forSalePetAPI from "../../../../../../../../api/for-sale-pet.api";
+import forSalePetAPI from "../../../../../../../../api-routes/for-sale-pet.api";
 import useForSalePet from "../../../../../../../../hooks/swr/use-for-sale-pet";
 import useUser from "../../../../../../../../hooks/swr/use-user";
 

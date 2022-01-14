@@ -9,7 +9,7 @@ import { Modal, ModalBody, ModalContent, ModalHeader, ModalOverlay } from "@chak
 import { Textarea } from "@chakra-ui/textarea";
 import { Field, FieldAttributes, Form, Formik } from "formik";
 import { useRouter } from "next/router";
-import kennelAPI from "../../../../api/kennel.api";
+import kennelAPI from "../../../../api-routes/kennel.api";
 import useHashBasedModal from "../../../../hooks/use-hash-based-modal";
 import useUser from "../../../../hooks/swr/use-user";
 import * as Yup from "yup";

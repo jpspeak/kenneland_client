@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import FormError from "../FormError";
 import authModalAtom from "../../../state/atoms/auth-modal.atom";
-import authAPI from "../../../api/auth.api";
+import authAPI from "../../../api-routes/auth.api";
 import { setAccessToken, setRefreshToken } from "../../../services/token.service";
 import useUser from "../../../hooks/swr/use-user";
 import config from "../../../config";

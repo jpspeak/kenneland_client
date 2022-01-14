@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import kennelAPI from "../../api/kennel.api";
+import kennelAPI from "../../api-routes/kennel.api";
 
 const useKennel = (kennelId: string) => {
   const { data, error, mutate } = useSWR(`/kennels/${kennelId}`, () => kennelAPI.getSingle(kennelId).then(res => res.data));

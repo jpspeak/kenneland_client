@@ -1,6 +1,6 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
-import apiServerClient from "../../../../api/api-server-client";
-import kennelAPI from "../../../../api/kennel.api";
+import apiServerClient from "../../../../api-routes/api-server-client";
+import kennelAPI from "../../../../api-routes/kennel.api";
 import KennelHeader from "../../../../components/pages/kennels/kennel/KennelHeader";
 import { IKennel } from "../../../../types";
 import Error from "next/error";

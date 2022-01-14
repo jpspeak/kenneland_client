@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import studAPI from "../../api/stud.api";
+import studAPI from "../../api-routes/stud.api";
 import { IStud } from "../../types";
 
 const useStud = (studId: string, initialData?: IStud) => {

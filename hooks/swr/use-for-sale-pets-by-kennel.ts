@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import forSalePetAPI from "../../api/for-sale-pet.api";
+import forSalePetAPI from "../../api-routes/for-sale-pet.api";
 
 const useForSalePetsByKennel = (kennelId: string) => {
   const { data, error, mutate } = useSWR(`/kennels/${kennelId}/for-sale-pets`, () => forSalePetAPI.getForSalePetsByKennel(kennelId));

@@ -1,5 +1,5 @@
 import useSWRInfinite from "swr/infinite";
-import kennelAPI from "../../api/kennel.api";
+import kennelAPI from "../../api-routes/kennel.api";
 import queryString from "query-string";
 import { IKennel, ICursorPagination } from "../../types";
 

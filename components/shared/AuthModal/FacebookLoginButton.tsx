@@ -5,7 +5,7 @@ import { useSetRecoilState } from "recoil";
 import ReactFacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import FormError from "../FormError";
 import authModalAtom from "../../../state/atoms/auth-modal.atom";
-import authAPI from "../../../api/auth.api";
+import authAPI from "../../../api-routes/auth.api";
 import useUser from "../../../hooks/swr/use-user";
 import { setAccessToken, setRefreshToken } from "../../../services/token.service";
 

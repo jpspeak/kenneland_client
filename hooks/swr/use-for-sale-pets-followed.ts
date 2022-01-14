@@ -1,9 +1,9 @@
 import useSWRInfinite from "swr/infinite";
-import kennelAPI from "../../api/kennel.api";
+import kennelAPI from "../../api-routes/kennel.api";
 import queryString from "query-string";
 import { ICursorPagination, IForSalePet, IStud } from "../../types";
-import studAPI from "../../api/stud.api";
-import forSalePetAPI from "../../api/for-sale-pet.api";
+import studAPI from "../../api-routes/stud.api";
+import forSalePetAPI from "../../api-routes/for-sale-pet.api";
 
 const useForSalePetsFollowed = (userId: string, query: { [key: string]: any } = {}, initialForSalePetsFollowed?: ICursorPagination<IForSalePet[]>) => {
   const getKey: any = (pageIndex: number, previousPageData: ICursorPagination<IStud[]>) => {

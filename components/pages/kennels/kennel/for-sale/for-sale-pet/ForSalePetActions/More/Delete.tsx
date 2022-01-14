@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { useState, useRef } from "react";
 import { HiOutlineTrash } from "react-icons/hi";
 import { useRecoilState } from "recoil";
-import forSalePetAPI from "../../../../../../../../api/for-sale-pet.api";
+import forSalePetAPI from "../../../../../../../../api-routes/for-sale-pet.api";
 import useForSalePet from "../../../../../../../../hooks/swr/use-for-sale-pet";
 import globalLoadingOverlayAtom from "../../../../../../../../state/atoms/global-loading-overlay.atom";
 
