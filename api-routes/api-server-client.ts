@@ -1,18 +1,14 @@
 import axios from "axios";
-import { getAccessToken, getServerAccessToken, setAccessToken, setRefreshToken } from "../services/token.service";
+import { getAccessToken, setAccessToken, setRefreshToken } from "../services/token.service";
 import tokenAPI from "./token.api";
-import userAPI from "./user.api";
-import { setupCache } from "axios-cache-adapter";
-
-const isServer = typeof window === "undefined";
+import config from "../config";
 
 let apiServerClient = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_SERVER_URL
+  baseURL: config.API_SERVER_URL
 });
 
 apiServerClient.interceptors.request.use(
   config => {
-    // const token = isServer ? getServerAccessToken() : getAccessToken();
     const token = getAccessToken();
     if (token) {
       config.headers = { ...config.headers, authorization: `Bearer ${token}` };

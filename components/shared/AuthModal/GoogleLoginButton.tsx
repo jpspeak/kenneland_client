@@ -44,7 +44,7 @@ const GoogleLoginButton = () => {
     <>
       <FormError errors={errors} />
       <GoogleLogin
-        clientId={config.googleClientId}
+        clientId={config.GOOGLE_CLIENT_ID}
         render={renderProps => (
           <IconButton isLoading={isLoading} title='Login with Google' aria-label='Login with google' shadow='base' isRound onClick={renderProps.onClick} icon={<Icon as={FcGoogle} w={5} h={5} />} />
         )}
