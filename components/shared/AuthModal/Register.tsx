@@ -1,14 +1,11 @@
 import { Button, FormControl, FormErrorMessage, FormLabel, Input, InputGroup, InputRightElement, useBoolean, VStack } from "@chakra-ui/react";
 import * as Yup from "yup";
 import { Field, FieldAttributes, Form, Formik } from "formik";
-// import authAPI from "../../../../api/auth.api";
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
 import authModalAtom from "../../../state/atoms/auth-modal.atom";
-import meAtom from "../../../state/atoms/user.atom";
 import { setAccessToken, setRefreshToken } from "../../../services/token.service";
 import FormError from "../FormError";
-import apiServerClient from "../../../api-routes/api-server-client";
 import authAPI from "../../../api-routes/auth.api";
 import useUser from "../../../hooks/swr/use-user";
 
