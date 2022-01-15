@@ -85,7 +85,7 @@ const LocalLoginForm = () => {
               )}
             </Field>
           </VStack>
-          <Button type='submit' w='full' rounded='full' colorScheme='primary' mt='6' isLoading={isLoading}>
+          <Button type='submit' w='full' rounded='lg' colorScheme='primary' mt='6' isLoading={isLoading}>
             Login
           </Button>
         </Form>

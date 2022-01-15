@@ -146,7 +146,7 @@ const Register = () => {
               )}
             </Field>
           </VStack>
-          <Button type='submit' w='full' colorScheme='primary' rounded='full' mt='6' isLoading={isLoading}>
+          <Button type='submit' w='full' colorScheme='primary' rounded='lg' mt='6' isLoading={isLoading}>
             Register
           </Button>
         </Form>
