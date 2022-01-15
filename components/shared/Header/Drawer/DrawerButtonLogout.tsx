@@ -13,7 +13,7 @@ const DrawerButtonLogout = () => {
     authAPI.logout().then(() => {
       setAccessToken("");
       mutateUser(undefined);
-      router.replace("/");
+      router.push("/kennels");
     });
   };
 
