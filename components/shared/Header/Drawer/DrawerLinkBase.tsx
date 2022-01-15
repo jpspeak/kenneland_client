@@ -1,10 +1,11 @@
 import { Button } from "@chakra-ui/button";
 import { Text } from "@chakra-ui/layout";
 import Link from "next/link";
-import { useDrawer } from "./Drawer";
+import { useContext } from "react";
+import { DrawerContext } from "./Drawer";
 
 const DrawerLinkBase = ({ href, text, icon }: { href: string; text: string; icon: JSX.Element }) => {
-  const { closeDrawer } = useDrawer();
+  const { closeDrawer } = useContext(DrawerContext);
 
   return (
     <Link href={href}>

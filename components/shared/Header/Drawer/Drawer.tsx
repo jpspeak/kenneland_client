@@ -5,23 +5,25 @@ import useUser from "../../../../hooks/swr/use-user";
 import DrawerLinkAccount from "./DrawerLinkAccount";
 import DrawerLogoutButton from "./DrawerButtonLogout";
 import DrawerLinkMyKennel from "./DrawerLinkMyKennel";
-import { useRecoilValue, useSetRecoilState } from "recoil";
-import drawerAtom from "../../../../state/atoms/drawer.atom";
 import { isMobile } from "react-device-detect";
+import { useState, createContext } from "react";
 
-export const useDrawer = () => {
-  const isOpen = useRecoilValue(drawerAtom);
-  const setDrawer = useSetRecoilState(drawerAtom);
+interface IDrawerContext {
+  isOpen: boolean;
+  closeDrawer?: () => void;
+}
+
+export const DrawerContext = createContext<IDrawerContext>({ isOpen: false });
+
+const AppDrawer = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const closeDrawer = () => {
-    setDrawer(false);
+    setIsOpen(false);
   };
   const openDrawer = () => {
-    setDrawer(true);
+    setIsOpen(true);
   };
-  return { isOpen, openDrawer, closeDrawer };
-};
-const AppDrawer = () => {
-  const { isOpen, openDrawer, closeDrawer } = useDrawer();
 
   const btnRef = React.useRef(null);
   const { user } = useUser();
@@ -40,7 +42,9 @@ const AppDrawer = () => {
               {user && (
                 <>
                   <DrawerLinkMyKennel />
-                  <DrawerLinkAccount />
+                  <DrawerContext.Provider value={{ isOpen, closeDrawer }}>
+                    <DrawerLinkAccount />
+                  </DrawerContext.Provider>
                 </>
               )}
             </VStack>
