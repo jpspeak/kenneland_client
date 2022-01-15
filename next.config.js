@@ -15,8 +15,9 @@ module.exports = {
   },
   images: {
     domains: ["placeimg.com", "i.ytimg.com", "kenneland-dicebear.herokuapp.com", "do2pc6u25f6a7.cloudfront.net"]
+  },
+  experimental: {
+    scrollRestoration: true,
+    esmExternals: false
   }
-  // experimental: {
-  //   scrollRestoration: true
-  // }
 };
