@@ -1,7 +1,7 @@
 import { Modal, ModalCloseButton, ModalContent, ModalOverlay } from "@chakra-ui/modal";
 import { Box } from "@chakra-ui/layout";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Navigation, Pagination } from "swiper";
 import "swiper/css/bundle";
 
 import Image from "next/image";
@@ -14,7 +14,7 @@ const GalleryFullView = ({ initialSlide, mediaUrls, isOpen, onClose }: { initial
         <ModalContent rounded='0' bgColor='black' minWidth='320px' height='full'>
           <ModalCloseButton zIndex={2} size='lg' color='white' />
           <Box height='full'>
-            <Swiper
+            {/* <Swiper
               className='w-full h-full'
               modules={[Navigation, Pagination]}
               pagination={{ clickable: true, hideOnClick: true }}
@@ -31,7 +31,7 @@ const GalleryFullView = ({ initialSlide, mediaUrls, isOpen, onClose }: { initial
                   </SwiperSlide>
                 );
               })}
-            </Swiper>
+            </Swiper> */}
           </Box>
         </ModalContent>
       </Modal>
