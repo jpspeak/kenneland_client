@@ -11,9 +11,9 @@ const DrawerButtonLogout = () => {
   const router = useRouter();
   const logOut = () => {
     authAPI.logout().then(() => {
-      router.replace("/");
       setAccessToken("");
       mutateUser(undefined);
+      router.replace("/");
     });
   };
 
