@@ -6,16 +6,11 @@ import LocalLoginForm from "./LocalLoginForm";
 const Login = () => {
   return (
     <>
-      <LocalLoginForm />
-      <Text textAlign='center' color='gray.500' mt='8' mb='4'>
-        Or Login With:
+      <GoogleLoginButton />
+      <Text textAlign='center' color='gray.500' my='4'>
+        OR
       </Text>
-      <Center>
-        <HStack spacing='2'>
-          <GoogleLoginButton />
-          <FacebookLoginButton />
-        </HStack>
-      </Center>
+      <LocalLoginForm />
     </>
   );
 };

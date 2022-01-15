@@ -1,5 +1,5 @@
 import GoogleLogin from "react-google-login";
-import { IconButton, Icon, useBoolean } from "@chakra-ui/react";
+import { IconButton, Icon, useBoolean, Button } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
@@ -46,7 +46,19 @@ const GoogleLoginButton = () => {
       <GoogleLogin
         clientId={config.GOOGLE_CLIENT_ID}
         render={renderProps => (
-          <IconButton isLoading={isLoading} title='Login with Google' aria-label='Login with google' shadow='base' isRound onClick={renderProps.onClick} icon={<Icon as={FcGoogle} w={5} h={5} />} />
+          // <IconButton isLoading={isLoading} title='Login with Google' aria-label='Login with google' shadow='base' isRound onClick={renderProps.onClick} icon={<Icon as={FcGoogle} w={5} h={5} />} />
+          <Button
+            isLoading={isLoading}
+            title='Login with Google'
+            color='blackAlpha.800'
+            width='full'
+            shadow='xs'
+            rounded='lg'
+            onClick={renderProps.onClick}
+            leftIcon={<Icon as={FcGoogle} w={5} h={5} />}
+          >
+            Continue with Google
+          </Button>
         )}
         onSuccess={onSuccess}
         onFailure={onFailure}
