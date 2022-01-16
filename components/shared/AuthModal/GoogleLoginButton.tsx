@@ -1,5 +1,5 @@
 import GoogleLogin from "react-google-login";
-import { IconButton, Icon, useBoolean, Button } from "@chakra-ui/react";
+import { IconButton, Icon, useBoolean, Button, useToast } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
@@ -15,6 +15,7 @@ const GoogleLoginButton = () => {
   const { mutateUser } = useUser();
   const [isLoading, setIsLoading] = useBoolean();
   const [errors, setErrors] = useState<{ message: string }[]>([]);
+  const toast = useToast();
 
   const onSuccess = (googleResponse: any) => {
     setIsLoading.on();
@@ -26,6 +27,14 @@ const GoogleLoginButton = () => {
         setIsLoading.off();
         setAuthModal({ isOpen: false });
         mutateUser();
+        toast({
+          title: `Welcome to Kenneland`,
+          duration: 3000,
+          status: "success",
+          position: "top",
+          variant: "subtle",
+          isClosable: true
+        });
       })
       .catch(error => {
         const formErrors = error.response?.data?.errors;

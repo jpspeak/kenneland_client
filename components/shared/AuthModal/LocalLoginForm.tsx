@@ -1,4 +1,4 @@
-import { Button, FormControl, FormErrorMessage, FormLabel, Input, useBoolean, VStack } from "@chakra-ui/react";
+import { Button, FormControl, FormErrorMessage, FormLabel, Input, useBoolean, useToast, VStack } from "@chakra-ui/react";
 import { Field, FieldAttributes, Form, Formik } from "formik";
 import { useState } from "react";
 import { useSetRecoilState } from "recoil";
@@ -20,6 +20,7 @@ const LocalLoginForm = () => {
   const { mutateUser } = useUser();
   const [isLoading, setIsLoading] = useBoolean();
   const [errors, setErrors] = useState<{ message: string }[]>([]);
+  const toast = useToast();
 
   const initialValues = {
     email: "",
@@ -36,6 +37,14 @@ const LocalLoginForm = () => {
         setIsLoading.off();
         setAuthModal({ isOpen: false });
         mutateUser();
+        toast({
+          title: `Welcome to Kenneland`,
+          duration: 3000,
+          status: "success",
+          position: "top",
+          variant: "subtle",
+          isClosable: true
+        });
       })
       .catch(error => {
         const formErrors = error.response?.data?.errors;
