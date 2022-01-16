@@ -11,7 +11,7 @@ const DrawerItemLogout = () => {
   const logOut = () => {
     authAPI.logout().then(() => {
       setAccessToken("");
-      mutateUser(undefined);
+      mutateUser(null, false);
       router.push("/kennels");
     });
   };

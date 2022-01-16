@@ -7,7 +7,7 @@ export interface IUpdateUserFormData {
 }
 
 const getMe = () => {
-  return apiServerClient.get<IUser>("/users/me");
+  return apiServerClient.get<IUser | null>("/users/me");
 };
 
 const getOne = (userId: string) => {

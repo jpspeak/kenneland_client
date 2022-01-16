@@ -28,11 +28,11 @@ const Follow = ({ kennelId }: { kennelId: string }) => {
       } catch (error) {}
     } else {
       toast({
-        title: "You are not logged in",
+        title: "Please log in first",
         duration: 3000,
         status: "error",
         position: "top",
-        variant: "left-accent",
+        variant: "subtle",
         isClosable: true
       });
       setAuthModal({ isOpen: true });
