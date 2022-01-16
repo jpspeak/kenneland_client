@@ -54,12 +54,12 @@ const ForSalePetItem = ({ href, forSalePet }: { href: string; forSalePet: IForSa
               {new Intl.NumberFormat("tl-PH", { style: "currency", currency: "PHP", minimumFractionDigits: 0 }).format(forSalePet.price)}
             </Text>
             <HStack justifyContent='space-between' mt='2'>
-              <Text fontSize={{ base: "x-small", md: "xs" }} noOfLines={1} color='blackAlpha.600' textAlign='end'>
+              <Text fontSize='x-small' noOfLines={1} color='blackAlpha.600' textAlign='end'>
                 <ReactTimeAgo date={new Date(forSalePet.createdAt)} locale='en-US' timeStyle='round-minute' />
               </Text>
               <HStack spacing={1} fontSize='x-small' color='blackAlpha.600' justifyContent='end' alignItems='center'>
                 <Icon as={HiOutlineHeart} color='blackAlpha.500' h='3' w='3' />
-                <Text lineHeight='shorter'>{forSalePet.likesCount > 0 ? shortNumber(forSalePet.likesCount) : "0"}</Text>
+                <Text lineHeight='none'>{forSalePet.likesCount > 0 ? shortNumber(forSalePet.likesCount) : "0"}</Text>
               </HStack>
             </HStack>
           </Box>
