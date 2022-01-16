@@ -3,13 +3,13 @@ import { Spinner } from "@chakra-ui/spinner";
 import AccountInfo from "../../components/pages/account/AccountInfo";
 import ChangePasswordModal from "../../components/pages/account/ChangePasswordModal";
 import DeleteAccountAlertDialog from "../../components/pages/account/DeleteAccountAlertDialog";
-import NotLoggedIn from "../../components/shared/NotLoggedIn";
+import YouAreNotLoggedIn from "../../components/pages/feed/YouAreNotLoggedIn";
 import useUser from "../../hooks/swr/use-user";
 
 const Account = () => {
   const { isLoggedIn, isLoadingUser } = useUser();
   if (isLoadingUser) return <Spinner size='sm' m='2' />;
-  if (!isLoggedIn) return <NotLoggedIn />;
+  if (!isLoggedIn) return <YouAreNotLoggedIn />;
   return (
     <Box height='full'>
       <Container maxWidth='container.xl' mt='1'>
