@@ -52,7 +52,9 @@ const KennelHeader = ({ kennel }: { kennel: IKennel }) => {
                 <Text>{kennel.breeds.join(", ")}</Text>
               </HStack>
 
-              <Text py='4'>{kennel.description}</Text>
+              <Text as='pre' whiteSpace='pre-wrap' fontFamily='inherit' py='4'>
+                {kennel.description}
+              </Text>
             </VStack>
           </Box>
           <KennelNav kennelId={kennel._id} />
