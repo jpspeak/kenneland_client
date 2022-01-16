@@ -19,7 +19,8 @@ import DrawerItemButtonWrapper from "../../../shared/Header/Drawer/DrawerItemBut
 import { HiPlusCircle } from "react-icons/hi";
 import Select from "react-select";
 import useDogBreeds from "../../../../hooks/swr/use-dog-breeds";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import AppDrawerContext from "../../../../state/context/app-drawer-context";
 
 const KennelModal = ({ closeKennelModal }: { closeKennelModal: () => void }) => {
   const { user, mutateUser } = useUser();
@@ -28,6 +29,7 @@ const KennelModal = ({ closeKennelModal }: { closeKennelModal: () => void }) => 
   const { dogBreeds } = useDogBreeds();
   const [breedOptions, setBreedOptions] = useState<{ label: string; value: string }[]>();
   const submitEl = useRef<HTMLInputElement>(null);
+  const { closeDrawer } = useContext(AppDrawerContext);
 
   useEffect(() => {
     setBreedOptions(dogBreeds?.map(dogBreed => ({ label: dogBreed.name, value: dogBreed.name })));
@@ -74,11 +76,11 @@ const KennelModal = ({ closeKennelModal }: { closeKennelModal: () => void }) => 
     }
     kennelAPI
       .create(user?._id!, formData)
-      .then(res => {
+      .then(({ data }) => {
         mutateUser();
         setIsLoading.off();
-        closeKennelModal();
-        router.replace(router.asPath.split("#")[0]);
+        closeDrawer();
+        router.push(`/kennels/${data._id}`);
       })
       .catch(err => {
         setIsLoading.off();
