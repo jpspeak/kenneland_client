@@ -27,7 +27,7 @@ const ContactKennelModal = ({ kennel }: { kennel: IKennel }) => {
       duration: 3000,
       status: "success",
       position: "top",
-      variant: "left-accent",
+      variant: "subtle",
       isClosable: true
     });
   };
@@ -40,9 +40,9 @@ const ContactKennelModal = ({ kennel }: { kennel: IKennel }) => {
       toast({
         title: "Please log in first",
         duration: 3000,
-        status: "info",
-        position: "top-right",
-        variant: "left-accent",
+        status: "error",
+        position: "top",
+        variant: "subtle",
         isClosable: true
       });
     }
