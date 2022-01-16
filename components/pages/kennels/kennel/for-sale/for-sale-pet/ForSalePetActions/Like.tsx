@@ -8,6 +8,7 @@ import useSWR from "swr";
 import forSalePetAPI from "../../../../../../../api-routes/for-sale-pet.api";
 import useUser from "../../../../../../../hooks/swr/use-user";
 import authModalAtom from "../../../../../../../state/atoms/auth-modal.atom";
+import shortNumber from "short-number";
 
 const Like = ({ forSalePetId }: { forSalePetId: string }) => {
   const { user } = useUser();
@@ -58,7 +59,7 @@ const Like = ({ forSalePetId }: { forSalePetId: string }) => {
           </Button>
         ) : (
           <Button leftIcon={<Icon as={HiOutlineHeart} h='5' w='5' />} fontSize='xs' onClick={like}>
-            {likesCount}
+            {shortNumber(likesCount || 0)}
           </Button>
         )}
       </Tooltip>
