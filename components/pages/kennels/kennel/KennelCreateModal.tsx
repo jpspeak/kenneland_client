@@ -64,7 +64,7 @@ const KennelModal = ({ closeKennelModal }: { closeKennelModal: () => void }) => 
     setIsLoading.on();
     const formData = new FormData();
     for (const value in values) {
-      if (typeof values[value] === "object") {
+      if (Array.isArray(values[value])) {
         (values[value] as string[]).forEach(arrValue => {
           formData.append(value, arrValue);
         });
