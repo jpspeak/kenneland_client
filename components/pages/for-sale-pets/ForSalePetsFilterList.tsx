@@ -1,5 +1,5 @@
 import { Alert, AlertDescription } from "@chakra-ui/alert";
-import { Button, Text } from "@chakra-ui/react";
+import { Button, Text, HStack } from "@chakra-ui/react";
 import { CloseButton } from "@chakra-ui/close-button";
 import { Flex } from "@chakra-ui/layout";
 import { useRouter } from "next/router";
@@ -22,6 +22,7 @@ const ForSalePetsFilterList = () => {
   useEffect(() => {
     let list: ForSalePetsFilterList[] = [];
     forSalePetsFilter.location && list.push({ key: "location", value: forSalePetsFilter.location });
+    forSalePetsFilter.sex && list.push({ key: "sex", value: forSalePetsFilter.sex });
     forSalePetsFilter.minPrice && list.push({ key: "minPrice", value: forSalePetsFilter.minPrice });
     forSalePetsFilter.maxPrice && list.push({ key: "maxPrice", value: forSalePetsFilter.maxPrice });
     forSalePetsFilter.breeds.length > 0 && forSalePetsFilter.breeds.forEach(breed => list.push({ key: "breed", value: breed }));
@@ -58,10 +59,12 @@ const ForSalePetsFilterList = () => {
           {forSalePetsFilterList.map(item => (
             <Alert key={item.value} m='1' bgColor='secondary.50' border='1px' borderColor='secondary.500' size='xs' rounded='lg' fontSize='sm' p='2' width='max-content' pr='10'>
               <AlertDescription whiteSpace='nowrap'>
+                {(item.key === "breed" || item.key === "sex") && <Text> {item.value}</Text>}
                 {item.key === "location" && (
-                  <>
-                    <Icon as={HiOutlineLocationMarker} /> <Text>{item.value}</Text>
-                  </>
+                  <HStack alignItems='center'>
+                    <Icon as={HiOutlineLocationMarker} />
+                    <Text> {item.value}</Text>
+                  </HStack>
                 )}
                 {item.key === "minPrice" && <Text>{`Price: > ${formatPrice(item.value)}`}</Text>}
                 {item.key === "maxPrice" && <Text>{`Price: < ${formatPrice(item.value)}`}</Text>}

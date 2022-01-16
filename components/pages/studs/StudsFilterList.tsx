@@ -1,5 +1,5 @@
 import { Alert, AlertDescription } from "@chakra-ui/alert";
-import { Button } from "@chakra-ui/button";
+import { Button, HStack, Text } from "@chakra-ui/react";
 import { CloseButton } from "@chakra-ui/close-button";
 import { Flex } from "@chakra-ui/layout";
 import { useRouter } from "next/router";
@@ -51,8 +51,15 @@ const StudsFilterList = () => {
         <Flex wrap='wrap' alignItems='center'>
           {studsFilterList.map(item => (
             <Alert key={item.value} m='1' bgColor='secondary.50' border='1px' borderColor='secondary.500' size='xs' rounded='lg' fontSize='sm' p='2' width='max-content' pr='10'>
-              {item.key === "location" && <Icon as={HiOutlineLocationMarker} />}
-              <AlertDescription whiteSpace='nowrap'>{item.value}</AlertDescription>
+              <AlertDescription whiteSpace='nowrap'>
+                {item.key === "location" && (
+                  <HStack alignItems='center'>
+                    <Icon as={HiOutlineLocationMarker} />
+                    <Text> {item.value}</Text>
+                  </HStack>
+                )}
+                {(item.key === "studName" || item.key === "breed") && <Text> {item.value}</Text>}
+              </AlertDescription>
               <CloseButton onClick={() => clear(item.key, item.value)} position='absolute' right='8px' top='8px' size='sm' />
             </Alert>
           ))}
