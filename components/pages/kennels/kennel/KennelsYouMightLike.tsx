@@ -15,13 +15,13 @@ const KennelsYouMightLikeItem = ({ id, displayPicture, name, location }: { id: s
       <Box>
         <HStack alignItems='start'>
           <Avatar src={displayPicture || "/kennel-display-picture-default.png"} />
-          <VStack spacing='0' alignItems='start' fontSize={{ md: "xs", lg: "sm" }}>
-            <Text fontWeight='semibold' noOfLines={1}>
+          <VStack spacing='0' alignItems='start' fontSize={{ md: "xs", lg: "sm" }} overflow='hidden'>
+            <Text fontWeight='semibold' isTruncated>
               {name}
             </Text>
             <HStack color='blackAlpha.700' spacing='0'>
               <Icon as={HiOutlineLocationMarker} />
-              <Text lineHeight='short' noOfLines={1}>
+              <Text lineHeight='short' isTruncated>
                 {location}
               </Text>
             </HStack>
