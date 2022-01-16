@@ -7,7 +7,7 @@ const GlobalLoadingOverlay = () => {
   return (
     <>
       <Modal closeOnOverlayClick={false} isOpen={isLoading} onClose={() => {}} isCentered>
-        <ModalOverlay bgColor='white' className='z-50' />
+        <ModalOverlay bgColor='transparent' className='z-50' />
       </Modal>
     </>
   );
