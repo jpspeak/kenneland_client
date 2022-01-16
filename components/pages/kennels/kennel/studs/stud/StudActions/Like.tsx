@@ -8,6 +8,7 @@ import useSWR from "swr";
 import studAPI from "../../../../../../../api-routes/stud.api";
 import useUser from "../../../../../../../hooks/swr/use-user";
 import authModalAtom from "../../../../../../../state/atoms/auth-modal.atom";
+import shortNumber from "short-number";
 
 const Like = ({ studId }: { studId: string }) => {
   const { user } = useUser();
@@ -52,11 +53,11 @@ const Like = ({ studId }: { studId: string }) => {
       <Tooltip label={isLiked ? "Unlike" : "Like"} hasArrow>
         {isLiked ? (
           <Button minWidth='70px' leftIcon={<Icon as={HiHeart} h='5' w='5' color='red.400' />} fontSize='xs' onClick={unLike}>
-            {likesCount}
+            {shortNumber(likesCount || 0)}
           </Button>
         ) : (
           <Button leftIcon={<Icon as={HiOutlineHeart} h='5' w='5' />} fontSize='xs' onClick={like}>
-            {likesCount}
+            {shortNumber(likesCount || 0)}
           </Button>
         )}
       </Tooltip>
