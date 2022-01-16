@@ -7,8 +7,10 @@ import { useRecoilState } from "recoil";
 import ForSaleForm from "./ForSalePetForm";
 import useForSalePetsByKennel from "../../../../../hooks/swr/use-for-sale-pets-by-kennel";
 import { useToast } from "@chakra-ui/toast";
+import useUser from "../../../../../hooks/swr/use-user";
 
 const ForSaleCreateModal = ({ closeModal }: { closeModal: () => void }) => {
+  const { user } = useUser();
   const [isLoading, setIsLoading] = useRecoilState(globalLoadingOverlayAtom);
   const router = useRouter();
   const modalSize = useBreakpointValue({ base: "full", md: "xl" });
@@ -20,7 +22,7 @@ const ForSaleCreateModal = ({ closeModal }: { closeModal: () => void }) => {
     sex: "Male",
     dateOfBirth: "",
     price: "",
-    location: "",
+    location: user?.kennel?.location,
     description: ""
   };
 
