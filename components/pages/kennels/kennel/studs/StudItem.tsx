@@ -6,17 +6,9 @@ import { HiOutlineHeart, HiOutlineLocationMarker } from "react-icons/hi";
 import { IStud } from "../../../../../types";
 import Link from "next/link";
 
-import TimeAgo from "javascript-time-ago";
-import en from "javascript-time-ago/locale/en.json";
-
 import shortNumber from "short-number";
 
-import { useEffect } from "react";
-
 const StudItem = ({ href, stud }: { href: string; stud: IStud }) => {
-  useEffect(() => {
-    TimeAgo.addDefaultLocale(en);
-  }, []);
   return (
     <Box bgColor='white' rounded={{ md: "lg" }} overflow='hidden' shadow='xs' cursor='pointer' _hover={{ md: { shadow: "lg" } }}>
       <HStack p='2' spacing={{ base: "1", md: "2" }}>

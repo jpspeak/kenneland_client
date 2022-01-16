@@ -16,6 +16,9 @@ import ErrorPage from "next/error"
 import ChatDrawer from '../components/shared/ChatDrawer/ChatDrawer'
 import { ChatDrawerProvider } from '../state/context/chat-drawer-context'
 import SocketProvider from '../state/context/socket-context'
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en.json";
+TimeAgo.addDefaultLocale(en);
 
 type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode

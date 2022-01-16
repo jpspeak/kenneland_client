@@ -6,19 +6,11 @@ import { HiOutlineHeart, HiOutlineLocationMarker } from "react-icons/hi";
 import { IForSalePet } from "../../../../../types";
 import getMonthsByDate from "../../../../../utils/get-months-by-date";
 import Link from "next/link";
-
-import TimeAgo from "javascript-time-ago";
-import en from "javascript-time-ago/locale/en.json";
 import ReactTimeAgo from "react-time-ago";
 
 import shortNumber from "short-number";
 
-import { useEffect } from "react";
-
 const ForSalePetItem = ({ href, forSalePet }: { href: string; forSalePet: IForSalePet }) => {
-  useEffect(() => {
-    TimeAgo.addDefaultLocale(en);
-  }, []);
   return (
     <Box bgColor='white' rounded={{ md: "lg" }} overflow='hidden' shadow='xs' _hover={{ md: { shadow: "lg" } }}>
       <HStack p='2' spacing={{ base: "1", md: "2" }}>
