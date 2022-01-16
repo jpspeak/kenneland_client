@@ -51,7 +51,7 @@ const KennelsYouMightLike = ({ kennel }: { kennel: IKennel }) => {
     setKennelsYouMightLike(kennelsYouMightLikeDataExcludeCurrentKennel);
   }, [kennel._id, kennelsYouMightLikeData]);
 
-  if (!kennelsYouMightLike) return <></>;
+  if (!kennelsYouMightLike || kennelsYouMightLike.length === 0) return <></>;
   return (
     <>
       <Box rounded='lg' mt='2' shadow='xs' bgColor='white'>
