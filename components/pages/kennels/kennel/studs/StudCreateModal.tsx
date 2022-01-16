@@ -40,7 +40,7 @@ const StudCreateModal = ({ closeModal }: { closeModal: () => void }) => {
           duration: 3000,
           status: "success",
           position: "top",
-          variant: "left-accent",
+          variant: "subtle",
           isClosable: true
         });
       })

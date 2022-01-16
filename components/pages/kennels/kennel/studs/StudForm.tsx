@@ -79,7 +79,7 @@ const StudForm = ({ initialValues, onSave, studImages, isLoading }: StudFormProp
         duration: 3000,
         status: "error",
         position: "top",
-        variant: "left-accent",
+        variant: "subtle",
         isClosable: true
       });
     } else {
