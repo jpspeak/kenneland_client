@@ -34,7 +34,8 @@ const ChangePassword = ({ onClose }: { onClose: () => void }) => {
           title: "Password updated.",
           duration: 3000,
           status: "success",
-          position: "top-right",
+          position: "top",
+          variant: "subtle",
           isClosable: true
         });
         setErrors([]);
