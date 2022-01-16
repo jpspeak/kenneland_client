@@ -18,6 +18,7 @@ import { ChatDrawerProvider } from '../state/context/chat-drawer-context'
 import SocketProvider from '../state/context/socket-context'
 import TimeAgo from "javascript-time-ago";
 import en from "javascript-time-ago/locale/en.json";
+import { AppDrawerContextProvider } from '../state/context/app-drawer-context'
 TimeAgo.addDefaultLocale(en);
 
 type NextPageWithLayout = NextPage & {
@@ -91,11 +92,12 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout ) {
         <AuthModal />
         <SocketProvider>
           <ChatDrawerProvider>
-            {/* <ChatDrawer /> */}
-            {pageProps.errorCode ? 
-              getLayout(<ErrorPage  statusCode={pageProps.errorCode}/>): 
-              getLayout(<Component {...pageProps} />)
-            }   
+            <AppDrawerContextProvider>
+              {pageProps.errorCode ? 
+                getLayout(<ErrorPage  statusCode={pageProps.errorCode}/>): 
+                getLayout(<Component {...pageProps} />)
+              }   
+            </AppDrawerContextProvider>
           </ChatDrawerProvider>
         </SocketProvider>           
       </ChakraProvider>

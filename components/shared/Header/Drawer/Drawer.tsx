@@ -6,7 +6,8 @@ import DrawerItemAccount from "./DrawerItemAccount";
 import DrawerItemLogout from "./DrawerItemLogout";
 import DrawerItemMyKennel from "./DrawerItemMyKennel";
 import { isMobile } from "react-device-detect";
-import { useState, createContext } from "react";
+import { useContext, createContext } from "react";
+import AppDrawerContext from "../../../../state/context/app-drawer-context";
 
 interface IDrawerContext {
   isOpen: boolean;
@@ -16,14 +17,7 @@ interface IDrawerContext {
 export const DrawerContext = createContext<IDrawerContext>({ isOpen: false });
 
 const AppDrawer = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const closeDrawer = () => {
-    setIsOpen(false);
-  };
-  const openDrawer = () => {
-    setIsOpen(true);
-  };
+  const { isOpen, openDrawer, closeDrawer } = useContext(AppDrawerContext);
 
   const btnRef = React.useRef(null);
   const { user } = useUser();
@@ -42,9 +36,8 @@ const AppDrawer = () => {
               {user && (
                 <>
                   <DrawerItemMyKennel />
-                  <DrawerContext.Provider value={{ isOpen, closeDrawer }}>
-                    <DrawerItemAccount />
-                  </DrawerContext.Provider>
+
+                  <DrawerItemAccount />
                 </>
               )}
             </VStack>
