@@ -32,7 +32,7 @@ const ForSalePet = ({ initialForSalePets }: { initialForSalePets: ICursorPaginat
         <meta name='description' content='Dog For Sale' />
       </Head>
       <Box>
-        <Container maxWidth='container.lg' mt='2' px={{ base: "0", md: "4" }}>
+        <Container maxWidth='container.lg' mt='2' px={{ base: "0", md: "4" }} pb='16'>
           <Grid templateColumns={{ base: "100%", md: "30% 70%" }} gap='2'>
             <ForSalePetsFilter />
             <VStack alignItems='normal'>

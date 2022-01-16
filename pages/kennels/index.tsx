@@ -34,7 +34,7 @@ const Kennels = ({ initialKennels }: { initialKennels: ICursorPagination<IKennel
         <meta name='description' content='Dog Kennel' />
       </Head>
       <Box>
-        <Container maxWidth='container.lg' mt='2' px={{ base: "2", md: "4" }}>
+        <Container maxWidth='container.lg' mt='2' px={{ base: "2", md: "4" }} pb='16'>
           <Grid templateColumns={{ base: "100%", md: "30% 70%" }} gap='2'>
             <KennelsFilter />
             <VStack alignItems='normal'>
