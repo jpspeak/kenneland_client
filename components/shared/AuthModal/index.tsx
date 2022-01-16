@@ -17,7 +17,7 @@ const Auth = () => {
       <ModalContent mx='4'>
         {/* <ModalHeader>Modal Title</ModalHeader> */}
         <ModalCloseButton rounded='full' />
-        <ModalBody mt='10' px='8' minWidth='400'>
+        <ModalBody mt='10' px='8' minWidth='300'>
           <Tabs isFitted variant='enclosed' colorScheme='brand'>
             <TabList mb='1em'>
               <Tab>
