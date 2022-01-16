@@ -24,16 +24,16 @@ const KennelCardViewContact = ({ kennel, showContact = false }: { kennel: IKenne
         backgroundRepeat='no-repeat'
         backgroundBlendMode='darken'
       >
-        <Avatar src={kennel.displayPicture} size='lg' />
-        <VStack alignItems='start' spacing='0' color='white'>
+        <Avatar src={kennel.displayPicture} size='lg' showBorder />
+        <VStack alignItems='start' spacing='0' color='white' overflow='hidden'>
           <Link href={`/kennels/${kennel._id}`} passHref>
-            <_Link fontWeight='semibold' fontSize={{ md: "lg" }}>
+            <_Link fontWeight='semibold' isTruncated>
               {kennel.name}
             </_Link>
           </Link>
           <HStack fontSize={{ base: "xs", md: "sm" }} alignItems='center' spacing='0'>
             <Icon as={HiOutlineLocationMarker} />
-            <Text noOfLines={1}>{kennel.location}</Text>
+            <Text isTruncated>{kennel.location}</Text>
           </HStack>
         </VStack>
         <Spacer />
