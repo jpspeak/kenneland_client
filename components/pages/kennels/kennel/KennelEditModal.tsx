@@ -18,9 +18,11 @@ import KennelBannerInput from "./KennelBannerInput";
 import { useRef, useState, useEffect } from "react";
 import Select from "react-select";
 import useDogBreeds from "../../../../hooks/swr/use-dog-breeds";
+import useKennel from "../../../../hooks/swr/use-kennel";
 
 const KennelModal = ({ closeKennelModal }: { closeKennelModal: () => void }) => {
   const { user, mutateUser } = useUser();
+  const { mutateKennel } = useKennel(user?.kennel?._id!);
   const router = useRouter();
   const size = useBreakpointValue({ base: "full", md: "xl" });
   const [isLoading, setIsLoading] = useBoolean();
@@ -82,8 +84,8 @@ const KennelModal = ({ closeKennelModal }: { closeKennelModal: () => void }) => 
       .then(res => {
         mutateUser();
         setIsLoading.off();
+        mutateKennel();
         closeKennelModal();
-        router.replace(router.asPath.split("#")[0]);
       })
       .catch(err => {
         setIsLoading.off();

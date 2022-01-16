@@ -10,19 +10,21 @@ import EmptyData from "../../../../components/shared/EmptyData";
 import KennelsYouMightLike from "../../../../components/pages/kennels/kennel/KennelsYouMightLike";
 import { useBreakpointValue } from "@chakra-ui/media-query";
 import Head from "next/head";
+import useKennel from "../../../../hooks/swr/use-kennel";
 
-const Posts = ({ kennel }: { kennel: IKennel }) => {
+const Posts = ({ initialKennel }: { initialKennel: IKennel }) => {
+  const { kennel } = useKennel(initialKennel._id, initialKennel);
   const isMd = useBreakpointValue({ base: false, md: true });
   return (
     <>
       <Head>
-        <title>{kennel.name}</title>
-        <meta name='description' content={`${kennel.name} Posts`} />
+        <title>{kennel?.name}</title>
+        <meta name='description' content={`${kennel?.name} Posts`} />
       </Head>
       <Container maxWidth='container.lg' p='0'>
         <Grid templateColumns={{ base: "100%", md: "70% 30%" }} alignItems='start'>
           <Box>
-            <KennelHeader kennel={kennel} />
+            <KennelHeader kennel={kennel!} />
 
             <Box px={{ base: "0", md: "4" }} width='100%' maxW='container.md'>
               {/* {kennel._id === user?.kennel?._id && (
@@ -51,7 +53,7 @@ const Posts = ({ kennel }: { kennel: IKennel }) => {
           </Box>
           {isMd && (
             <Box pr='4'>
-              <KennelsYouMightLike kennel={kennel} />
+              <KennelsYouMightLike kennel={kennel!} />
             </Box>
           )}
         </Grid>
@@ -68,7 +70,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   try {
     const res = await kennelAPI.getSingle(kennelId as string);
     return {
-      props: { kennel: res.data }
+      props: { initialKennel: res.data }
     };
   } catch (error) {
     const err = error as AxiosError;

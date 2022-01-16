@@ -17,10 +17,12 @@ import { AxiosError } from "axios";
 import EmptyData from "../../../../components/shared/EmptyData";
 import KennelsYouMightLike from "../../../../components/pages/kennels/kennel/KennelsYouMightLike";
 import Head from "next/head";
+import useKennel from "../../../../hooks/swr/use-kennel";
 
-const Studs = ({ kennel }: { kennel: IKennel }) => {
+const Studs = ({ initialKennel }: { initialKennel: IKennel }) => {
   const { user } = useUser();
-  const { studs, errorStudsByKennel } = useStudsByKennel(kennel._id);
+  const { kennel } = useKennel(initialKennel._id, initialKennel);
+  const { studs, errorStudsByKennel } = useStudsByKennel(initialKennel._id);
   console.log(studs);
   const isMd = useBreakpointValue({ base: false, md: true });
 
@@ -29,15 +31,15 @@ const Studs = ({ kennel }: { kennel: IKennel }) => {
   return (
     <>
       <Head>
-        <title>{kennel.name}</title>
-        <meta name='description' content={`${kennel.name} Stud Service`} />
+        <title>{kennel?.name}</title>
+        <meta name='description' content={`${kennel?.name} Stud Service`} />
       </Head>
       <Container maxWidth='container.lg' p='0'>
         <Grid templateColumns={{ base: "100%", md: "70% 30%" }} alignItems='start'>
           <Box>
-            <KennelHeader kennel={kennel} />
+            <KennelHeader kennel={kennel!} />
             <Box px={{ base: "0", md: "4" }} width='full' maxW='container.md'>
-              {kennel._id === user?.kennel?._id && (
+              {kennel?._id === user?.kennel?._id && (
                 <Flex justifyContent='end' bgColor='white' shadow='xs' my='2' rounded={{ base: "none", md: "lg" }} px={{ md: "0" }} p={{ base: "2", md: "4" }}>
                   <Button color='blackAlpha.700' leftIcon={<Icon as={HiOutlinePlus} />} size='sm' onClick={openModal}>
                     Add stud
@@ -45,9 +47,9 @@ const Studs = ({ kennel }: { kennel: IKennel }) => {
                 </Flex>
               )}
               {studs && studs.length > 0 && (
-                <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }} gap='2' mt={kennel._id === user?.kennel?._id ? "0" : "2"}>
+                <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }} gap='2' mt={kennel?._id === user?.kennel?._id ? "0" : "2"}>
                   {studs?.map(stud => (
-                    <StudItem key={stud._id} href={`/kennels/${kennel._id}/studs/${stud._id}`} stud={stud} />
+                    <StudItem key={stud._id} href={`/kennels/${kennel?._id}/studs/${stud._id}`} stud={stud} />
                   ))}
                 </Grid>
               )}
@@ -60,7 +62,7 @@ const Studs = ({ kennel }: { kennel: IKennel }) => {
           </Box>
           {isMd && (
             <Box pr='4'>
-              <KennelsYouMightLike kennel={kennel} />
+              <KennelsYouMightLike kennel={kennel!} />
             </Box>
           )}
         </Grid>
@@ -77,7 +79,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   try {
     const res = await kennelAPI.getSingle(kennelId as string);
     return {
-      props: { kennel: res.data }
+      props: { initialKennel: res.data }
     };
   } catch (error) {
     const err = error as AxiosError;

@@ -17,26 +17,28 @@ import { AxiosError } from "axios";
 import EmptyData from "../../../../components/shared/EmptyData";
 import KennelsYouMightLike from "../../../../components/pages/kennels/kennel/KennelsYouMightLike";
 import Head from "next/head";
+import useKennel from "../../../../hooks/swr/use-kennel";
 
-const ForSale = ({ kennel }: { kennel: IKennel }) => {
+const ForSale = ({ initialKennel }: { initialKennel: IKennel }) => {
   const { user } = useUser();
-  const { forSalePetsByKennel, errorForSalePetsByKennel, mutateForSalePetsByKennel } = useForSalePetByKennel(kennel._id);
+  const { kennel } = useKennel(initialKennel._id, initialKennel);
+  const { forSalePetsByKennel, errorForSalePetsByKennel, mutateForSalePetsByKennel } = useForSalePetByKennel(initialKennel._id);
   const isMd = useBreakpointValue({ base: false, md: true });
 
   const { isOpen, openModal, closeModal } = useHashBasedModal("#create-for-sale");
   return (
     <>
       <Head>
-        <title>{kennel.name}</title>
-        <meta name='description' content={`${kennel.name} For Sale Pets`} />
+        <title>{kennel?.name}</title>
+        <meta name='description' content={`${kennel?.name} For Sale Pets`} />
       </Head>
       <Container maxWidth='container.lg' p='0'>
         <Grid templateColumns={{ base: "100%", md: "70% 30%" }} alignItems='start'>
           <Box>
-            <KennelHeader kennel={kennel} />
+            <KennelHeader kennel={kennel!} />
 
             <Box px={{ base: "0", md: "4" }} width='100%' maxW='container.md'>
-              {kennel._id === user?.kennel?._id && (
+              {kennel?._id === user?.kennel?._id && (
                 <Flex justifyContent='end' bgColor='white' shadow='xs' my='2' rounded={{ base: "none", md: "lg" }} px={{ md: "0" }} p={{ base: "2", md: "4" }}>
                   <Button color='blackAlpha.700' leftIcon={<Icon as={HiOutlinePlus} />} size='sm' onClick={openModal}>
                     Sell pet
@@ -44,9 +46,9 @@ const ForSale = ({ kennel }: { kennel: IKennel }) => {
                 </Flex>
               )}
               {forSalePetsByKennel && forSalePetsByKennel.length > 0 && (
-                <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }} gap='2' mt={kennel._id === user?.kennel?._id ? "0" : "2"}>
+                <Grid templateColumns={{ base: "repeat(2, 1fr)", md: "repeat(3, 1fr)" }} gap='2' mt={kennel?._id === user?.kennel?._id ? "0" : "2"}>
                   {forSalePetsByKennel?.map(forSalePet => (
-                    <ForSalePetItem key={forSalePet._id} href={`/kennels/${kennel._id}/for-sale-pets/${forSalePet._id}`} forSalePet={forSalePet} />
+                    <ForSalePetItem key={forSalePet._id} href={`/kennels/${kennel?._id}/for-sale-pets/${forSalePet._id}`} forSalePet={forSalePet} />
                   ))}
                 </Grid>
               )}
@@ -59,7 +61,7 @@ const ForSale = ({ kennel }: { kennel: IKennel }) => {
           </Box>
           {isMd && (
             <Box pr='4'>
-              <KennelsYouMightLike kennel={kennel} />
+              <KennelsYouMightLike kennel={kennel!} />
             </Box>
           )}
         </Grid>
@@ -76,7 +78,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   try {
     const res = await kennelAPI.getSingle(kennelId as string);
     return {
-      props: { kennel: res.data }
+      props: { initialKennel: res.data }
     };
   } catch (error) {
     const err = error as AxiosError;
