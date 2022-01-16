@@ -8,7 +8,7 @@ import DrawerItemLinkWrapper from "./DrawerItemLinkWrapper";
 
 const DrawerItemMyKennel = () => {
   const { user } = useUser();
-  return <>{user?.kennel ? <DrawerItemLinkWrapper href={`/kennels/${user?.kennel?._id}`} text='My Kennel' icon={Kennel} /> : <KennelCreateModal />}</>;
+  return <>{user?.kennel ? <DrawerItemLinkWrapper href={`/kennels/${user?.kennel?._id}`} text='MY KENNEL' icon={Kennel} /> : <KennelCreateModal />}</>;
 };
 
 export default DrawerItemMyKennel;
