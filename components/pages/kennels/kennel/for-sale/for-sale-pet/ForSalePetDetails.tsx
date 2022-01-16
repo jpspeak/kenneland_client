@@ -27,7 +27,9 @@ const ForSalePetDetails = ({ forSalePet }: { forSalePet: IForSalePet }) => (
     <Text mt='4' fontWeight='bold' color='blackAlpha.700'>
       Description
     </Text>
-    <Text color='blackAlpha.800'>{forSalePet.description || "-"}</Text>
+    <Text as='pre' whiteSpace='pre-wrap' fontFamily='inherit' color='blackAlpha.800'>
+      {forSalePet.description || "-"}
+    </Text>
     <Text mt='4' fontWeight='bold' color='blackAlpha.700'>
       Current location
     </Text>

@@ -34,7 +34,9 @@ const StudDetails = ({ stud }: { stud: IStud }) => (
     <Text mt='4' fontWeight='bold' color='blackAlpha.700'>
       Description
     </Text>
-    <Text color='blackAlpha.800'>{stud.description || "-"}</Text>
+    <Text as='pre' whiteSpace='pre-wrap' fontFamily='inherit' color='blackAlpha.800'>
+      {stud.description || "-"}
+    </Text>
     <Text mt='4' fontWeight='bold' color='blackAlpha.700'>
       Current location
     </Text>
