@@ -57,7 +57,7 @@ const ForSalePetItem = ({ href, forSalePet }: { href: string; forSalePet: IForSa
               <Text fontSize={{ base: "x-small", md: "xs" }} noOfLines={1} color='blackAlpha.600' textAlign='end'>
                 <ReactTimeAgo date={new Date(forSalePet.createdAt)} locale='en-US' timeStyle='round-minute' />
               </Text>
-              <HStack spacing={0} fontSize={{ base: "x-small", md: "xs" }} color='blackAlpha.600' justifyContent='end' alignItems='center'>
+              <HStack spacing={1} fontSize='x-small' color='blackAlpha.600' justifyContent='end' alignItems='center'>
                 <Icon as={HiOutlineHeart} color='blackAlpha.500' h='3' w='3' />
                 <Text lineHeight='shorter'>{forSalePet.likesCount > 0 ? shortNumber(forSalePet.likesCount) : "0"}</Text>
               </HStack>

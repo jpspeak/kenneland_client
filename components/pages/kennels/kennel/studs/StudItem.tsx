@@ -40,7 +40,7 @@ const StudItem = ({ href, stud }: { href: string; stud: IStud }) => {
             <Text fontSize={{ base: "xs", md: "xs" }} noOfLines={1}>
               {stud.breed}
             </Text>
-            <HStack mt='2' spacing={0} fontSize={{ base: "x-small", md: "xs" }} color='blackAlpha.600' justifyContent='end' alignItems='center'>
+            <HStack mt='2' spacing={1} fontSize='x-small' color='blackAlpha.600' justifyContent='end' alignItems='center'>
               <Icon as={HiOutlineHeart} color='blackAlpha.500' h='3' w='3' />
               <Text lineHeight='shorter'>{stud.likesCount > 0 ? shortNumber(stud.likesCount) : "0"}</Text>
             </HStack>
