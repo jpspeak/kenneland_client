@@ -15,15 +15,15 @@ const StudItem = ({ href, stud }: { href: string; stud: IStud }) => {
         <Link href={`/kennels/${stud.kennel._id}`} passHref>
           <Avatar size='sm' src={stud.kennel.displayPicture} cursor='pointer' />
         </Link>
-        <VStack alignItems='normal' spacing='0'>
+        <VStack alignItems='normal' spacing='0' overflow='hidden'>
           <Link href={`/kennels/${stud.kennel._id}`} passHref>
-            <Text fontSize={{ base: "xs", md: "sm" }} lineHeight='short' noOfLines={1} cursor='pointer' _hover={{ textDecoration: "underline" }}>
+            <Text isTruncated fontSize={{ base: "xs", md: "sm" }} lineHeight='short' cursor='pointer' _hover={{ textDecoration: "underline" }}>
               {stud.kennel.name}
             </Text>
           </Link>
           <HStack color='blackAlpha.700' spacing='0' lineHeight='shorter' fontSize={{ base: "x-small", md: "xs" }}>
             <Icon as={HiOutlineLocationMarker} />
-            <Text noOfLines={1}>{stud?.location}</Text>
+            <Text isTruncated>{stud?.location}</Text>
           </HStack>
         </VStack>
       </HStack>
@@ -34,10 +34,10 @@ const StudItem = ({ href, stud }: { href: string; stud: IStud }) => {
           </Flex>
 
           <Box p='2'>
-            <Text fontWeight='semibold' fontSize={{ base: "xs", md: "xs" }} noOfLines={1}>
+            <Text fontWeight='semibold' fontSize={{ base: "xs", md: "xs" }} isTruncated>
               {stud.name}
             </Text>
-            <Text fontSize={{ base: "xs", md: "xs" }} noOfLines={1}>
+            <Text fontSize={{ base: "xs", md: "xs" }} isTruncated>
               {stud.breed}
             </Text>
             <HStack mt='2' spacing={1} fontSize='x-small' color='blackAlpha.600' justifyContent='end' alignItems='center'>

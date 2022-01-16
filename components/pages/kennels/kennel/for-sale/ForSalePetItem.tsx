@@ -17,15 +17,15 @@ const ForSalePetItem = ({ href, forSalePet }: { href: string; forSalePet: IForSa
         <Link href={`/kennels/${forSalePet.kennel._id}`} passHref>
           <Avatar size='sm' src={forSalePet.kennel.displayPicture} cursor='pointer' />
         </Link>
-        <VStack alignItems='normal' spacing='0'>
+        <VStack alignItems='normal' spacing='0' overflow='hidden'>
           <Link href={`/kennels/${forSalePet.kennel._id}`} passHref>
-            <Text fontSize={{ base: "xs", md: "sm" }} lineHeight='short' noOfLines={1} cursor='pointer' _hover={{ textDecoration: "underline" }}>
+            <Text isTruncated fontSize={{ base: "xs", md: "sm" }} lineHeight='short' cursor='pointer' _hover={{ textDecoration: "underline" }}>
               {forSalePet.kennel.name}
             </Text>
           </Link>
-          <HStack color='blackAlpha.700' spacing='0' lineHeight='shorter' fontSize={{ base: "x-small", md: "xs" }}>
+          <HStack width='full' color='blackAlpha.700' spacing='0' lineHeight='shorter' fontSize={{ base: "x-small", md: "xs" }}>
             <Icon as={HiOutlineLocationMarker} />
-            <Text noOfLines={1}>{forSalePet.location}</Text>
+            <Text isTruncated>{forSalePet.location}</Text>
           </HStack>
         </VStack>
       </HStack>
@@ -42,7 +42,7 @@ const ForSalePetItem = ({ href, forSalePet }: { href: string; forSalePet: IForSa
           </Flex>
           <Box p='2'>
             <HStack fontSize={{ base: "xs", md: "xs" }} spacing='1'>
-              <Text fontWeight='semibold' noOfLines={1}>
+              <Text fontWeight='semibold' isTruncated>
                 {forSalePet.breed}
               </Text>
             </HStack>
