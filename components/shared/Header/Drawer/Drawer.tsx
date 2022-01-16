@@ -2,9 +2,9 @@ import React from "react";
 import { Drawer, Icon, DrawerBody, DrawerFooter, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, IconButton, VStack } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import useUser from "../../../../hooks/swr/use-user";
-import DrawerLinkAccount from "./DrawerLinkAccount";
-import DrawerLogoutButton from "./DrawerButtonLogout";
-import DrawerLinkMyKennel from "./DrawerLinkMyKennel";
+import DrawerItemAccount from "./DrawerItemAccount";
+import DrawerItemLogout from "./DrawerItemLogout";
+import DrawerItemMyKennel from "./DrawerItemMyKennel";
 import { isMobile } from "react-device-detect";
 import { useState, createContext } from "react";
 
@@ -41,16 +41,16 @@ const AppDrawer = () => {
             <VStack spacing='8px' alignItems='start'>
               {user && (
                 <>
-                  <DrawerLinkMyKennel />
+                  <DrawerItemMyKennel />
                   <DrawerContext.Provider value={{ isOpen, closeDrawer }}>
-                    <DrawerLinkAccount />
+                    <DrawerItemAccount />
                   </DrawerContext.Provider>
                 </>
               )}
             </VStack>
           </DrawerBody>
 
-          <DrawerFooter px='2'>{user && <DrawerLogoutButton />}</DrawerFooter>
+          <DrawerFooter px='2'>{user && <DrawerItemLogout />}</DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>

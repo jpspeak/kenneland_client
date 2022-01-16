@@ -1,5 +1,4 @@
 import { Button, IconButton } from "@chakra-ui/button";
-import { Icon } from "@chakra-ui/react";
 import { FormControl, FormErrorMessage, FormLabel } from "@chakra-ui/form-control";
 import { useBoolean } from "@chakra-ui/hooks";
 import { CloseIcon } from "@chakra-ui/icons";
@@ -16,8 +15,8 @@ import useUser from "../../../../hooks/swr/use-user";
 import * as Yup from "yup";
 import KennelLogoInput from "./KennelLogoInput";
 import KennelBannerInput from "./KennelBannerInput";
-import DrawerButtonBase from "../../../shared/Header/Drawer/DrawerButtonBase";
-import { HiOutlinePlusCircle, HiPlusCircle } from "react-icons/hi";
+import DrawerItemButtonWrapper from "../../../shared/Header/Drawer/DrawerItemButtonWrapper";
+import { HiPlusCircle } from "react-icons/hi";
 import Select from "react-select";
 import useDogBreeds from "../../../../hooks/swr/use-dog-breeds";
 import { useState, useEffect, useRef } from "react";
@@ -215,7 +214,7 @@ const KennelCreateModal = () => {
 
   return (
     <>
-      <DrawerButtonBase onClick={openModal} text='Create kennel' icon={<Icon as={HiPlusCircle} h={5} w={5} />} />
+      <DrawerItemButtonWrapper onClick={openModal} text='CREATE MY KENNEL' icon={HiPlusCircle} />
       {isOpen && <KennelModal closeKennelModal={closeModal} />}
     </>
   );
