@@ -55,7 +55,7 @@ const Like = ({ forSalePetId }: { forSalePetId: string }) => {
       <Tooltip label={isLiked ? "Unlike" : "Like"} hasArrow>
         {isLiked ? (
           <Button minWidth='70px' leftIcon={<Icon as={HiHeart} h='5' w='5' color='red.400' />} fontSize='xs' onClick={unLike}>
-            {likesCount}
+            {shortNumber(likesCount || 0)}
           </Button>
         ) : (
           <Button leftIcon={<Icon as={HiOutlineHeart} h='5' w='5' />} fontSize='xs' onClick={like}>
