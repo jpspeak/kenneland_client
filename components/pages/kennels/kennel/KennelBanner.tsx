@@ -7,7 +7,14 @@ const KennelBanner = ({ src }: { src?: string }) => {
   const { isOpen, openModal, closeModal } = useHashBasedModal("#banner");
   return (
     <>
-      <Flex cursor='pointer' onClick={openModal} rounded={{ md: "lg" }} overflow='hidden'>
+      <Flex
+        onClick={() => {
+          src && openModal();
+        }}
+        cursor={src ? "pointer" : "unset"}
+        rounded={{ md: "lg" }}
+        overflow='hidden'
+      >
         <Image objectFit='cover' src={`${src || "/banner-default.png"}`} height='300' width='900' alt='Kennel banner' className='bg-gray-200' />
       </Flex>
       {src && <GalleryFullView isOpen={isOpen} onClose={closeModal} mediaUrls={[src]} />}
